@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import '@/App.css';
+import './App.css'; // Changed from @/App.css for standard compatibility
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaDownload, FaCode, FaDatabase, FaServer, FaMobile, FaUsers, FaChartLine, FaRocket, FaLightbulb, FaGraduationCap } from 'react-icons/fa';
 import { SiReact, SiPython, SiFastapi, SiRedis, SiSqlite, SiHtml5, SiCss3, SiJavascript, SiVercel, SiTailwindcss } from 'react-icons/si';
-import axios from 'axios';
+// import axios from 'axios'; // Commented out as it is not currently used
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+// const BACKEND_URL = process.env.REACT_APP_BACKEND_URL; // Unused
+// const API = `${BACKEND_URL}/api`; // Unused
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -40,8 +40,6 @@ function App() {
       setIsMenuOpen(false);
     }
   };
-
-
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -164,6 +162,10 @@ function App() {
     }
   ];
 
+  // Helper variable for the PDF path
+  // NOTE: Ensure your PDF is inside the "public/assets" folder in your project structure
+  const PDF_PATH = "/assets/BTech_Resources_Project_Documentation.pdf";
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
       {/* Navigation */}
@@ -195,19 +197,17 @@ function App() {
                 </button>
               ))}
               
-  <button
-    className="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg flex items-center justify-center space-x-2"
-  >
-      <a
-  href="/frontend/public/assets/BTech_Resources_Project_Documentation.pdf"
-  download="Project_Documentation.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
->
-    <FaDownload />
-    <span>Documentation</span></a>
-  </button>
-
+              {/* FIXED: Removed nested button, used anchor directly with styling */}
+              <a
+                href={PDF_PATH}
+                download="Project_Documentation.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all flex items-center space-x-2"
+              >
+                <FaDownload />
+                <span>Documentation</span>
+              </a>
 
             </div>
 
@@ -249,18 +249,17 @@ function App() {
                 </button>
               ))}
 
-              <button
-                
+              {/* FIXED: Mobile Download Button */}
+              <a 
+                href={PDF_PATH}
+                download="Project_Documentation.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg flex items-center justify-center space-x-2"
               >
-                  <a href="/frontend/public/assets/BTech_Resources_Project_Documentation.pdf"
-  download="Project_Documentation.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
->
                 <FaDownload />
-                <span>Documentation</span></a>
-              </button>
+                <span>Documentation</span>
+              </a>
                   
             </div>
           </motion.div>
@@ -299,19 +298,19 @@ function App() {
                 Explore Projects
               </motion.button>
                   
-              <motion.button
+              {/* FIXED: Hero Download Button (removed nested button) */}
+              <motion.a
+                href={PDF_PATH}
+                download="Project_Documentation.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-white/10 backdrop-blur-md text-white text-lg font-semibold rounded-full hover:bg-white/20 transition-all border border-white/20 flex items-center space-x-2"
-              ><a
-  href="/frontend/public/assets/BTech_Resources_Project_Documentation.pdf"
-  download="Project_Documentation.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
->
+                className="px-8 py-4 bg-white/10 backdrop-blur-md text-white text-lg font-semibold rounded-full hover:bg-white/20 transition-all border border-white/20 flex items-center space-x-2 cursor-pointer"
+              >
                 <FaDownload />
-                <span>Download Documentation</span></a>
-              </motion.button>
+                <span>Download Documentation</span>
+              </motion.a>
                   
             </div>
             <div className="flex items-center justify-center space-x-8 text-sm text-gray-300">
@@ -802,9 +801,16 @@ function App() {
                   </a>
                 </li>
                 <li>
-                  <button onClick={handleDownloadDocumentation} className="text-gray-400 hover:text-blue-400 transition-colors">
+                    {/* FIXED: Footer Download Button - Using direct anchor link */}
+                  <a 
+                    href={PDF_PATH}
+                    download="Project_Documentation.pdf"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-blue-400 transition-colors cursor-pointer"
+                  >
                     Documentation
-                  </button>
+                  </a>
                 </li>
               </ul>
             </div>
