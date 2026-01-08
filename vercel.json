@@ -1,0 +1,14 @@
+// vercel.json example
+{
+  "headers": [
+    {
+      "source": "/files/(.*).pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment" // Change to "inline" to view
+        }
+      ]
+    }
+  ]
+}
