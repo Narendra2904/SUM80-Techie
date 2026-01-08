@@ -202,17 +202,20 @@ function App() {
                   {item.label}
                 </button>
               ))}
-              <a 
-  href="/assets/BTech_Resources_Project_Documentation.pdf" 
+              <a
+  href="/assets/BTech_Resources_Project_Documentation.pdf"
   download="Project_Documentation.pdf"
   target="_blank"
   rel="noopener noreferrer"
 >
-  <button className="ml-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all flex items-center space-x-2">
+  <button
+    className="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg flex items-center justify-center space-x-2"
+  >
     <FaDownload />
     <span>Documentation</span>
   </button>
 </a>
+
             </div>
 
             {/* Mobile Menu Button */}
