@@ -213,7 +213,7 @@ function App() {
               ))}
               <a 
   href="/assets/BTech_Resources_Project_Documentation.pdf" 
-  download="Project_Documentation.pdf"
+  
   target="_blank"
   rel="noopener noreferrer"
 >
