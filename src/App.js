@@ -50,6 +50,7 @@ function App() {
   link.remove();
 };
 
+
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
@@ -201,9 +202,10 @@ function App() {
                   {item.label}
                 </button>
               ))}
-             <a
-  href="/public/assets/BTech_Resources_Project_Documentation.pdf"
-  download="BTech_Resources_Project_Documentation.pdf"
+              <a 
+  href="/assets/BTech_Resources_Project_Documentation.pdf" 
+  download="Project_Documentation.pdf"
+  target="_blank"
   rel="noopener noreferrer"
 >
   <button className="ml-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all flex items-center space-x-2">
@@ -211,7 +213,6 @@ function App() {
     <span>Documentation</span>
   </button>
 </a>
-
             </div>
 
             {/* Mobile Menu Button */}
@@ -251,21 +252,13 @@ function App() {
                   {item.label}
                 </button>
               ))}
-              <a 
-  href="/assets/BTech_Resources_Project_Documentation.pdf" 
-  download="Project_Documentation.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <motion.button
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    className="px-8 py-4 bg-white/10 backdrop-blur-md text-white text-lg font-semibold rounded-full hover:bg-white/20 transition-all border border-white/20 flex items-center space-x-2"
-  >
-    <FaDownload />
-    <span>Download Documentation</span>
-  </motion.button>
-</a>
+              <button
+                onClick={handleDownloadDocumentation}
+                className="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg flex items-center justify-center space-x-2"
+              >
+                <FaDownload />
+                <span>Documentation</span>
+              </button>
             </div>
           </motion.div>
         )}
@@ -294,33 +287,24 @@ function App() {
               Empowering engineering students with centralized academic resources and intelligent result tracking
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-  <motion.button
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    onClick={() => scrollToSection('projects')}
-    className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold rounded-full hover:from-blue-600 hover:to-purple-700 transition-all shadow-lg"
-  >
-    Explore Projects
-  </motion.button>
-
-  {/* LINK ADDED HERE */}
-  <a 
-    href="/assets/BTech_Resources_Project_Documentation.pdf" 
-    download="Project_Documentation.pdf"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      // Removed onClick={handleDownloadDocumentation} since the <a> tag handles it
-      className="px-8 py-4 bg-white/10 backdrop-blur-md text-white text-lg font-semibold rounded-full hover:bg-white/20 transition-all border border-white/20 flex items-center space-x-2"
-    >
-      <FaDownload />
-      <span>Download Documentation</span>
-    </motion.button>
-  </a>
-</div>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('projects')}
+                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold rounded-full hover:from-blue-600 hover:to-purple-700 transition-all shadow-lg"
+              >
+                Explore Projects
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleDownloadDocumentation}
+                className="px-8 py-4 bg-white/10 backdrop-blur-md text-white text-lg font-semibold rounded-full hover:bg-white/20 transition-all border border-white/20 flex items-center space-x-2"
+              >
+                <FaDownload />
+                <span>Download Documentation</span>
+              </motion.button>
+            </div>
             <div className="flex items-center justify-center space-x-8 text-sm text-gray-300">
               <div className="flex items-center space-x-2">
                 <FaUsers className="text-blue-400" />
