@@ -212,7 +212,7 @@ function App() {
                 </button>
               ))}
              <a
-  href="/assets/BTech_Resources_Project_Documentation.pdf"
+  href="/public/assets/BTech_Resources_Project_Documentation.pdf"
   download="BTech_Resources_Project_Documentation.pdf"
   rel="noopener noreferrer"
 >
