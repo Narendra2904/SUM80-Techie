@@ -261,13 +261,21 @@ function App() {
                   {item.label}
                 </button>
               ))}
-              <button
-                onClick={handleDownloadDocumentation}
-                className="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg flex items-center justify-center space-x-2"
-              >
-                <FaDownload />
-                <span>Documentation</span>
-              </button>
+              <a 
+  href="/assets/BTech_Resources_Project_Documentation.pdf" 
+  download="Project_Documentation.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="px-8 py-4 bg-white/10 backdrop-blur-md text-white text-lg font-semibold rounded-full hover:bg-white/20 transition-all border border-white/20 flex items-center space-x-2"
+  >
+    <FaDownload />
+    <span>Download Documentation</span>
+  </motion.button>
+</a>
             </div>
           </motion.div>
         )}
