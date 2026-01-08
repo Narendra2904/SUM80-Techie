@@ -43,7 +43,7 @@ function App() {
 
   const handleDownloadDocumentation = () => {
   const link = document.createElement('a');
-  link.href = "/assets/BTech_Resources_Project_Documentation.pdf";
+  link.href = "/public/assets/BTech_Resources_Project_Documentation.pdf";
   link.download = "Project_Documentation.pdf";
   document.body.appendChild(link);
   link.click();
