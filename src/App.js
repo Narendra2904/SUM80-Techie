@@ -41,24 +41,14 @@ function App() {
     }
   };
 
-  const handleDownloadDocumentation = async () => {
-    try {
-      const response = await axios.get(`${API}/download-documentation`, {
-        responseType: 'blob'
-      });
-      
-      const url = window.URL.createObjectURL(new Blob([response.data]));
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', 'BTech_Resources_Project_Documentation.pdf');
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-    } catch (error) {
-      console.error('Error downloading documentation:', error);
-      alert('Failed to download documentation. Please try again.');
-    }
-  };
+  const handleDownloadDocumentation = () => {
+  const link = document.createElement('a');
+  link.href = "/assets/BTech_Resources_Project_Documentation.pdf";
+  link.download = "Project_Documentation.pdf";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+};
 
   const navItems = [
     { id: 'home', label: 'Home' },
